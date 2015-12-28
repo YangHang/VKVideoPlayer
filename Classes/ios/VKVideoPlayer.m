@@ -1251,13 +1251,13 @@ typedef enum {
     CGRect bounds = [[UIScreen mainScreen] bounds];
     CGRect parentBounds;
     CGRect viewBoutnds;
-    if (UIInterfaceOrientationIsLandscape(deviceOrientation)) {
-      viewBoutnds = CGRectMake(0, 0, CGRectGetWidth(self.landscapeFrame), CGRectGetHeight(self.landscapeFrame));
-      parentBounds = CGRectMake(0, 0, CGRectGetHeight(bounds), CGRectGetWidth(bounds));
-    } else {
-      viewBoutnds = CGRectMake(0, 0, CGRectGetWidth(self.portraitFrame), CGRectGetHeight(self.portraitFrame));
-      parentBounds = CGRectMake(0, 0, CGRectGetWidth(bounds), CGRectGetHeight(bounds));
-    }
+      if (UIInterfaceOrientationIsLandscape(deviceOrientation)) {
+          viewBoutnds = CGRectMake(0, 0, CGRectGetWidth(self.landscapeFrame), CGRectGetHeight(self.landscapeFrame));
+          parentBounds = CGRectMake(0, 0, CGRectGetHeight(bounds),CGRectGetWidth(bounds));
+      } else {
+          viewBoutnds = CGRectMake(0, 0, CGRectGetWidth(self.portraitFrame),300);
+          parentBounds = CGRectMake(0, 0, CGRectGetWidth(bounds), 300);//CGRectGetHeight(bounds)
+      }
     
     weakSelf.view.superview.transform = CGAffineTransformMakeRotation(degreesToRadians(degrees));
     weakSelf.view.superview.bounds = parentBounds;
