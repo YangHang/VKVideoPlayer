@@ -1255,8 +1255,9 @@ typedef enum {
           viewBoutnds = CGRectMake(0, 0, CGRectGetWidth(self.landscapeFrame), CGRectGetHeight(self.landscapeFrame));
           parentBounds = CGRectMake(0, 0, CGRectGetHeight(bounds),CGRectGetWidth(bounds));
       } else {
-          viewBoutnds = CGRectMake(0, 0, CGRectGetWidth(self.portraitFrame),300);
-          parentBounds = CGRectMake(0, 0, CGRectGetWidth(bounds), 300);//CGRectGetHeight(bounds)
+          viewBoutnds = CGRectMake(0,0, CGRectGetWidth(self.portraitFrame),CGRectGetWidth(self.portraitFrame)*9/16);
+          self.view.backgroundColor = [UIColor redColor];
+          parentBounds = CGRectMake(0,-64, CGRectGetWidth(self.portraitFrame),CGRectGetWidth(self.portraitFrame)*9/16+64);//CGRectGetHeight(bounds)CGRectGetHeight(bounds)
       }
     
     weakSelf.view.superview.transform = CGAffineTransformMakeRotation(degreesToRadians(degrees));
