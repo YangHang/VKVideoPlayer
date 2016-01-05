@@ -122,4 +122,20 @@
   }
 }
 
+- (void)videoPlayer:(VKVideoPlayer*)videoPlayer willChangeOrientationTo:(UIInterfaceOrientation)orientation
+{
+    
+    //    [downView removeFromSuperview];
+    
+    [self.delegate willChangeOrientationTo:orientation];
+    
+}
+
+- (void)videoPlayer:(VKVideoPlayer *)videoPlayer didChangeOrientationFrom:(UIInterfaceOrientation)orientation
+
+{
+    [self.delegate didChangeOrientationFrom:orientation];
+    
+}
+
 @end
